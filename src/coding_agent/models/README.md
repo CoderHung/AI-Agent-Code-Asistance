@@ -1,0 +1,4 @@
+# Models
+
+`litellm_model.py` - Wrapper for [Litellm](https://github.com/BerriAI/litellm) models
+   (should support most of all models).

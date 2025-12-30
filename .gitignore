@@ -1,0 +1,6 @@
+task_history.txt
+.env
+last_run.traj.json
+src/coding_agent.egg-info
+**/__pycache__
+

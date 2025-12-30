@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coding-agent"      # recommend kebab-case
+version = "1.0.0"
+readme = "README.md"
+dependencies = [
+    "pyyaml",
+    "requests",
+    "jinja2",
+    "litellm >= 1.75.5",
+    "tenacity",
+    "rich",
+    "python-dotenv",
+    "typer",
+    "platformdirs",
+    "textual",
+    "prompt_toolkit",
+    "openai != 1.100.0,!=1.100.1",
+]
+
+[project.scripts]
+agent = "coding_agent.run.run:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
