@@ -4,6 +4,7 @@ import os
 import traceback
 from pathlib import Path
 from typing import Any
+from dotenv import load_dotenv
 
 import typer
 import yaml
@@ -25,8 +26,11 @@ DEFAULT_OUTPUT = "last_run.traj.json"
 console = Console(highlight=False)
 app = typer.Typer(rich_markup_mode="rich")
 prompt_session = PromptSession(history=FileHistory("task_history.txt"))
-
-
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
+Console().print(
+    f"Loading global config from [bold green]'{BASE_DIR}\\.env'[/bold green]"
+)
+load_dotenv(BASE_DIR / ".env")
 
 # fmt: off
 @app.command()
@@ -75,11 +79,9 @@ def main(
         model_config["model_name"] = from_env
     else:
         raise ValueError("No default model set.")
-    model_class = LitellmModel
 
     if (from_env := os.getenv("MODEL_API_KEY")):
         model_config.setdefault("model_kwargs", {})["api_key"] = from_env
-    print(model_config)
     model = LitellmModel(**model_config)
     
     env = LocalEnvironment(**config.get("env", {}))

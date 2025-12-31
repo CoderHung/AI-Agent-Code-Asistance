@@ -1,0 +1,4 @@
+Your goal is to handle a task named "test_processor". 
+Your high-level objective: Make sure that the test in "tests/test_processor.py" passes successfully. 
+dont modify any datafiles, test files or modify the core data loading logic of the main files
+try to understand the repo structure and the problem at hand
