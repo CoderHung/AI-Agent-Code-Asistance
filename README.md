@@ -15,7 +15,7 @@ pip install -e .
    cp .env.example .env
 2. Update the `.env` file with the required values.
 
-https://docs.litellm.ai/docs/providers(list of supported models)
+https://docs.litellm.ai/docs/providers (list of supported models)
 ## Usage
 
 Run the agent:
